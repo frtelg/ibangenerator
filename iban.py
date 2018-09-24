@@ -1,3 +1,7 @@
+# created by Franke Telgenhof
+# version 1.0: 2018-08-16
+# version 1.1: 2018-09-24
+
 import random
 import pyperclip
 
@@ -70,7 +74,7 @@ def generateBankAccount():
     while test == 0:
         i = 0
         for x in accountArray:
-            accountArray[i] = str(random.randint(1,9))
+            accountArray[i] = str(random.randint(0,9))
             i = i + 1
         
         generatedBankAccount = ''.join(accountArray)
