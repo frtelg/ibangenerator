@@ -1,4 +1,4 @@
-from flask import Flask, json, request, jsonify, Response
+from flask import Flask, jsonify
 from iban import Iban
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ def getIban():
     return jsonify(newIban.__dict__)
 
 def runApp():
-    app.run(host='localhost', port=5000)
+    app.run(host='localhost')
 
 if __name__ == '__main__':
     runApp()
