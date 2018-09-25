@@ -19,12 +19,12 @@ def stringToInt(bankString):
         if x.isdigit() == False:
             bankArray[i] = ord(x) - 55
         i = i + 1
-    
+
     i = 0
     for x in bankArray:
         bankArray[i] = str(bankArray[i])
         i = i + 1
-    
+
     bankString = ''.join(bankArray)
     return bankString
 
@@ -68,36 +68,41 @@ def randomBank():
     return randomBank
 
 def generateBankAccount():
-    accountArray = [0,0,0,0,0,0,0,0,0,0]
     test = 0
-    
+
     while test == 0:
-        i = 0
-        for x in accountArray:
-            accountArray[i] = str(random.randint(0,9))
-            i = i + 1
+        accountArray = []
+
+        for i in range(10):
+            accountArray.append(str(random.randint(0,9)))
         
         generatedBankAccount = ''.join(accountArray)
         test = elevenTest(generatedBankAccount)
-    
+
     bankString = generatedBankAccount
     return bankString
 
-def generateIban(): 
-    outcome = False
+class Iban:
+    def __init__(self, iban):
+        self.iban = iban
 
-    while outcome == False:
-        country = 'NL'
-        bank = randomBank()
-        bankAccount = generateBankAccount()
-        controlNumber = defineControlNumber(bank,bankAccount)
-        generatedIban = country + controlNumber + bank + bankAccount
-        intIban = stringToInt(generatedIban)
-        intIban = convertIbanToInt(intIban)
-        outcome = mod97(intIban)
+    @classmethod
+    def generateIban(cls): 
+        outcome = False
 
-    return generatedIban
+        while outcome == False:
+            country = 'NL'
+            bank = randomBank()
+            bankAccount = generateBankAccount()
+            controlNumber = defineControlNumber(bank,bankAccount)
+            generatedIban = country + controlNumber + bank + bankAccount
+            intIban = stringToInt(generatedIban)
+            intIban = convertIbanToInt(intIban)
+            outcome = mod97(intIban)
 
-randomIban = generateIban()
-pyperclip.copy(randomIban)
-print(randomIban)
+        return cls(generatedIban)
+
+if __name__ == '__main__':
+    randomIban = Iban.generateIban()
+    pyperclip.copy(randomIban.iban)
+    print(randomIban.iban)
