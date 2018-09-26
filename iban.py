@@ -73,7 +73,7 @@ def generateBankAccount():
     while test == 0:
         accountArray = []
 
-        for i in range(10):
+        for _ in range(10):
             accountArray.append(str(random.randint(0,9)))
         
         generatedBankAccount = ''.join(accountArray)
