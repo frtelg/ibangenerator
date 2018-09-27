@@ -3,6 +3,7 @@ from namesgenerator import Person
 testPerson = Person("Jan", "Janssen", "1990-11-16", "janjanssen@testmail.com", "M")
 print(testPerson.birthDateTranslation)
 print(testPerson.genderTranslation)
+print(testPerson.initials)
 
 try:
     invalidDate = Person("Jan", "Janssen", "16-11-1990", "janjanssen@testmail.com", "M")

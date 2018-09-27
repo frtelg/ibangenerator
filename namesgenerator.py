@@ -10,6 +10,8 @@ class Person:
         self.eMailAddress = eMailAddress
         self.gender = gender
 
+        self.initials = firstName[0] + "."
+
         if gender == "M":
             self.genderTranslation = "De heer"
 

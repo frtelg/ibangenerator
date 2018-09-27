@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def mainPage():
-    return '<a href="/getIban">Get IBAN webservice</a>'
+    return """<a href="/getIban">Get IBAN webservice</a><br>
+    <a href="/randomDude">Get random person webservice</a>
+    """
 
 @app.route('/getIban', methods=['GET'])
 def getIban():
