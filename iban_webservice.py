@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from iban import Iban
+from namesgenerator import Person
 
 app = Flask(__name__)
 
@@ -11,6 +12,11 @@ def mainPage():
 def getIban():
     newIban = Iban.generateIban()
     return jsonify(newIban.__dict__)
+
+@app.route('/randomDude', methods=['GET'])
+def getDude():
+    newDude = Person.randomDude()
+    return jsonify(newDude.__dict__)
 
 def runApp():
     app.run(host='localhost')

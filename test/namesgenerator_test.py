@@ -15,3 +15,7 @@ try:
     print(invalidGender.birthDateTranslation)
 except ValueError:
     print("Invalid gender test successful")
+
+testDude = Person.randomDude()
+print(testDude.firstName)
+print(testDude.birthDate)
