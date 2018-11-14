@@ -1,6 +1,7 @@
 # created by Franke Telgenhof
 # version 1.0: 2018-08-16
 # version 1.1: 2018-09-24
+# version 1.2: 2018-11-14
 
 import random
 import pyperclip
