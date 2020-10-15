@@ -11,17 +11,17 @@ def mainPage():
     """
 
 @app.route('/getIban', methods=['GET'])
-def getIban():
-    newIban = Iban.generateIban()
-    return jsonify(newIban.__dict__)
+def get_iban():
+    new_iban = Iban.generate_iban()
+    return jsonify(new_iban.__dict__)
 
 @app.route('/randomDude', methods=['GET'])
-def getDude():
-    newDude = Person.randomDude()
-    return jsonify(newDude.__dict__)
+def get_dude():
+    new_dude = Person.random_dude()
+    return jsonify(new_dude.__dict__)
 
-def runApp():
+def run_app():
     app.run(host='localhost')
 
 if __name__ == '__main__':
-    runApp()
+    run_app()
